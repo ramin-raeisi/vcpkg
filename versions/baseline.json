@@ -7020,6 +7020,10 @@
       "baseline": "1.4",
       "port-version": 0
     },
+    "openfx-davinci-resolve": {
+      "baseline": "18.6",
+      "port-version": 0
+    },
     "opengl": {
       "baseline": "2022-12-04",
       "port-version": 3
