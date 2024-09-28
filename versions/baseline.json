@@ -7017,7 +7017,7 @@
       "port-version": 1
     },
     "openfx": {
-      "baseline": "1.4",
+      "baseline": "1.5",
       "port-version": 0
     },
     "openfx-davinci-resolve": {
