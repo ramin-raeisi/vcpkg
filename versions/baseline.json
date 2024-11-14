@@ -8576,6 +8576,10 @@
       "baseline": "6.2.1",
       "port-version": 0
     },
+    "sbs-openfx": {
+      "baseline": "1.5",
+      "port-version": 0
+    },
     "scenepic": {
       "baseline": "1.1.1",
       "port-version": 0
