@@ -11,6 +11,8 @@ if(WIN32)
     set(OFX_ARCH_NAME "Win64")
 endif()
 
+add_definitions(-DOFX_SUPPORTS_OPENGLRENDER)
+
 set(OFX_HEADERS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_library(OpenFx-standard INTERFACE)
