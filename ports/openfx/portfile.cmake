@@ -3,8 +3,9 @@ string(REPLACE "." "_" UNDERSCORE_VERSION "${VERSION}")
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO AcademySoftwareFoundation/openfx
-    REF "OFX_Release_1.5"
-    SHA512 1572d0a915dfb7dc76d4bcbf6753cd101425ba89fc3b8b21f0de607024f70f96bfdc0e75065b9e7090c8dbce85d8f260679da59d0bb8c7ec2067a7063a18d41a
+    REF "OFX_Release_1.5s"
+    SHA512 a4aa6e612b314b54193e8e06f5c679a8900b1d72a4e77dc2edec19360f09bd683c7c28b82fec0a9544c95e66847acfb1e19f351d60869ae634a0e12a6fa03138
+
     HEAD_REF main
 )
 
