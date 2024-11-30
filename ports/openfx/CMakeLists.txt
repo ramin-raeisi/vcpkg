@@ -43,8 +43,35 @@ target_include_directories(OfxSupport-standard
 target_link_libraries(OfxSupport-standard INTERFACE OpenFx-standard)
 target_compile_features(OfxSupport-standard PUBLIC cxx_std_11)
 
+set(OFX_HOSTSUPPORT_HEADER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/HostSupport/include)
+set(OFX_HOSTSUPPORT_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/HostSupport/src)
+file(GLOB_RECURSE OFX_HOSTSUPPORT_HEADER_FILES "${OFX_HOSTSUPPORT_HEADER_DIR}/*.h")
+file(GLOB_RECURSE OFX_HOSTSUPPORT_LIBRARY_FILES "${OFX_HOSTSUPPORT_LIBRARY_DIR}/*.cpp")
+file(GLOB_RECURSE OFX_HEADER_FILES "${OFX_HEADERS_DIR}/*.h")
+
+find_package(expat CONFIG REQUIRED)
+
+add_library(OfxHost STATIC
+	${OFX_HEADER_FILES}
+	${OFX_HOSTSUPPORT_HEADER_FILES}
+	${OFX_HOSTSUPPORT_LIBRARY_FILES})
+
+set_target_properties(OfxHost PROPERTIES LINKER_LANGUAGE CXX)
+if(NOT MSVC)
+	set_target_properties(OfxHost PROPERTIES COMPILE_FLAGS "-fPIC")
+endif()
+
+target_link_libraries(OfxHost PUBLIC expat::expat)
+
+target_include_directories(OfxHost PUBLIC
+    $<BUILD_INTERFACE:${OFX_HEADERS_DIR}>
+	$<BUILD_INTERFACE:${OFX_HOSTSUPPORT_HEADER_DIR}>
+	$<BUILD_INTERFACE:${expat_INCLUDE_DIR}>
+    $<INSTALL_INTERFACE:include/openfx-standard>
+)
+
 install(
-    TARGETS OpenFx-standard OfxSupport-standard
+    TARGETS OpenFx-standard OfxSupport-standard OfxHost
     EXPORT openfx-export
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
@@ -57,7 +84,7 @@ install(
     DESTINATION "share/unofficial-openfx"
 )
 
-file(GLOB OFX_HEADERS "${OFX_HEADERS_DIR}/*.h" "${OFX_SUPPORT_HEADERS_DIR}/*.h")
+file(GLOB OFX_HEADERS "${OFX_HEADERS_DIR}/*.h" "${OFX_SUPPORT_HEADERS_DIR}/*.h"  "${OFX_HOSTSUPPORT_HEADER_DIR}/*.h")
 install(FILES ${OFX_HEADERS}
     DESTINATION include/openfx-standard
 )
