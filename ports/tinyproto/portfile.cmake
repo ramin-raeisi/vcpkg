@@ -2,10 +2,10 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO lexus2k/tinyproto
-    REF 77df8bbde4fa075031014eeef6061f2892c7b084
-    SHA512 c8b1a19d45fe3527e7e16bd1641842e639e70ad3f33f804b84a3a95719ac328305a4360c9d7f6b6c5a659b01a38a50f75298467dc8c16b4d118a8ee4948ce906
-    HEAD_REF master
+    REPO ramin-raeisi/tinyproto
+    REF 75c8bd3dd259b6c62a827090a8823a448fa331d4 # 1.0.0 + 156 commits
+    SHA512 7093c9b78212e80a9660e6cab9e1bb8e53eb5deb30a9cacaa22c69eba57751b001212c9ff1a47704ae871d17d30643a85d9da510332ea0e822917ca354eb3af0
+    HEAD_REF feature/add-macos-supportability
 )
 
 vcpkg_cmake_configure(
