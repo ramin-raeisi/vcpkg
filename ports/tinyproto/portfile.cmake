@@ -3,8 +3,8 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ramin-raeisi/tinyproto
-    REF e92a0ef34c47339293a37c7f6a2e9f13f5629713
-    SHA512 84200727bb7ce63b05197f2bf0160aa837a3fe896d64949657d9db3647fe5afc06dfe4f06f0ae4c492d2b77e973bd4e66dacd9ce0288dbdc1fe4acfe9d6b6842
+    REF d10aa6dbc3b7baadaad4c2418a82359f8efccc8f
+    SHA512 e1a6a19552bd1eb78af849b7dbbabea4e4228715b8debb8c05f1e3aa2cbb79700455bfe47c214a11d13dcb13954eb263dba0506011a21325860a42eccee81c37
     HEAD_REF feature/add-macos-supportability
 )
 
